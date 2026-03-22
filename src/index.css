@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  /* --color-primary: #534AB7; */
+  --color-primary: #0ea5e9;
+  
+  --color-primary-hover: #4540a3;
+  --color-surface: #F8F8F8;
+  --color-card: #FFFFFF;
+  --color-highlight: #F1F0FB;
+  --color-text-primary: #1A1A2E;
+  --color-text-secondary: #6B6B80;
+  --color-text-muted: #A0A0B0;
+  --color-border: #E2E2EE;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #F8F8F8;
+  color: #1A1A2E;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-splash {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(900px 500px at 20% -10%, #F0EEFF, transparent 55%),
+    radial-gradient(700px 420px at 110% 15%, #ECF7FF, transparent 55%),
+    linear-gradient(135deg, #F8F8F8 0%, #F5F7FF 100%);
+}
+
+.app-splash-card {
+  width: min(460px, 90vw);
+  background: #FFFFFF;
+  border: 1px solid #E2E2EE;
+  border-radius: 26px;
+  padding: 30px 28px;
+  box-shadow: 0 30px 70px rgba(16, 24, 40, 0.08);
+  text-align: center;
+}
+
+.splash-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #534AB7;
+}
+
+.splash-title {
+  margin-top: 10px;
+  font-size: 28px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #0ea5e9;
+}
+
+.splash-subtitle {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #0ea5e9;
+  opacity: 0.75;
+}
+
+.splash-progress {
+  position: relative;
+  height: 6px;
+  border-radius: 999px;
+  background: #ECEBFA;
+  overflow: hidden;
+  margin: 18px auto 0;
+}
+
+.splash-progress-bar {
+  position: absolute;
+  inset: 0;
+  transform: translateX(-70%);
+  background: linear-gradient(90deg, #0ea5e9 0%, #0ea5e9 50%, #0ea5e9 100%);
+  animation: splash-bar 1.2s ease-in-out infinite;
+}
+
+.splash-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.splash-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #0ea5e9;
+  animation: splash-bounce 1.2s ease-in-out infinite;
+}
+
+.splash-dot:nth-child(2) { animation-delay: 0.15s; }
+.splash-dot:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes splash-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(-6px); opacity: 1; }
+}
+
+@keyframes splash-bar {
+  0% { transform: translateX(-80%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(80%); }
+}
